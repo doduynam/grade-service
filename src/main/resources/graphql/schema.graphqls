@@ -1,4 +1,8 @@
 
+type Query {
+    answerById(id: ID): Answer
+    questionById(id: ID): Question
+}
 
 type Answer {
     id: ID!
