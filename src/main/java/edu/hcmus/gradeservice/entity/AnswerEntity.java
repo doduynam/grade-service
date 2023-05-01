@@ -17,7 +17,7 @@ public class AnswerEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Id
   @Column(name = "answer_id")
-  private int id;
+  private long id;
 
   @Basic
   @Column(name = "question_id")

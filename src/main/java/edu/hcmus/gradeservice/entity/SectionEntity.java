@@ -17,7 +17,7 @@ public class SectionEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Id
   @Column(name = "section_id")
-  private int id;
+  private long id;
 
   @Basic
   @Column(name = "test_id")

@@ -17,7 +17,7 @@ public class TemplateEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Id
   @Column(name = "template_id")
-  private int id;
+  private long id;
 
   @Basic
   @Column(name = "template_type_id")
