@@ -1,0 +1,61 @@
+
+
+type Answer {
+    id: ID!
+    question: Question
+    content: String
+    options: String
+}
+
+type Paragraph {
+    id: ID!
+    section: Session
+    wallpaper: String
+    title: String
+    content: String
+}
+
+type Question {
+    id: ID!
+    template: Template
+    questionIndex: Int
+    content: String
+    options: String
+    score: Int
+}
+
+type Session {
+    id: ID!
+    test: Test
+    sectionIndex: Int
+    sectionType: Int
+}
+
+type Template {
+    id: ID!
+    templateType: TemplateType
+    section: Session
+    templateIndex: Int
+    title: String
+    content: String
+    expandColumn: String
+}
+
+type TemplateType {
+    id: ID!
+    name: String
+    description: String
+}
+
+type Test {
+    id: ID!
+    title: String
+    testType: Int
+    testLevel: Int
+}
+
+
+
+
+
+
