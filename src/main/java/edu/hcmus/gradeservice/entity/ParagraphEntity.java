@@ -17,7 +17,7 @@ public class ParagraphEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Id
   @Column(name = "paragraph_id")
-  private int paragraphId;
+  private int id;
 
   @Basic
   @Column(name = "section_id")
