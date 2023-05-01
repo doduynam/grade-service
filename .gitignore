@@ -25,3 +25,8 @@ replay_pid*
 
 # IDE
 .idea
+
+# Build file
+build/
+gradle/
+.gradle/
