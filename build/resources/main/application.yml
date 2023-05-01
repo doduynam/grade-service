@@ -1,0 +1,12 @@
+
+spring:
+  graphql:
+    graphiql:
+      enabled: true
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3307/warrior
+    username: root
+    password: admin
+
