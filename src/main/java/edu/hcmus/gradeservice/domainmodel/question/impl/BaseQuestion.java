@@ -8,15 +8,19 @@ import java.util.List;
 
 public class BaseQuestion implements IQuestion {
 
-    protected int id;
+    protected Integer id;
+    protected Integer index;
     protected String content;
     protected List<IAnswer> answers;
-    protected int score = CommonConstant.DEFAULT_QUESTION_POINT;
+    protected Integer score = CommonConstant.DEFAULT_QUESTION_POINT;
 
     @Override
-    public int getId() {
+    public Integer getId() {
         return id;
     }
+
+    @Override
+    public Integer getIndex() {return index;}
 
     @Override
     public String getContent() {
@@ -29,12 +33,17 @@ public class BaseQuestion implements IQuestion {
     }
 
     @Override
-    public int getQuestionScore() {
+    public Integer getQuestionScore() {
         return score;
     }
     @Override
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Override
+    public void setIndex(Integer index) {
+        this.index = index;
     }
 
     @Override
@@ -47,7 +56,7 @@ public class BaseQuestion implements IQuestion {
         this.answers = answers;
     }
 
-    public void setQuestionScore(int score) {
+    public void setQuestionScore(Integer score) {
         this.score = score;
     }
 }
