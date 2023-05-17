@@ -18,17 +18,26 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+	lombokVersion = '1.18.26'
+}
+
 dependencies {
+
+	//Spring Boot
 	implementation 'org.springframework.boot:spring-boot-starter-graphql'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework:spring-webflux'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
 	testImplementation 'org.springframework.graphql:spring-graphql-test'
+
+	//Lombok project
+	compileOnly "org.projectlombok:lombok:$lombokVersion"
+	annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+	//DB Connector
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 }
 
 tasks.named('test') {
