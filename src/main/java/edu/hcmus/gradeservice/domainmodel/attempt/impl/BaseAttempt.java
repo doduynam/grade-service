@@ -1,12 +1,11 @@
-package edu.hcmus.gradeservice.domainmodel.test.impl;
+package edu.hcmus.gradeservice.domainmodel.attempt.impl;
 
-import edu.hcmus.gradeservice.domainmodel.question.IQuestion;
 import edu.hcmus.gradeservice.domainmodel.section.ISection;
-import edu.hcmus.gradeservice.domainmodel.test.ITest;
+import edu.hcmus.gradeservice.domainmodel.attempt.IAttempt;
 
 import java.util.Map;
 
-public class BaseTest implements ITest {
+public class BaseAttempt implements IAttempt {
 
     protected Integer id;
     protected Map<Integer, ISection> sections;

@@ -1,12 +1,12 @@
 package edu.hcmus.gradeservice.domainmodel.grader;
 
 import edu.hcmus.gradeservice.domainmodel.grader.result.impl.TestResult;
-import edu.hcmus.gradeservice.domainmodel.test.ITest;
+import edu.hcmus.gradeservice.domainmodel.attempt.IAttempt;
 
 public class Grader {
 
-    protected ITest userSubmission;
-    protected ITest correctSolution;
+    protected IAttempt userSubmission;
+    protected IAttempt correctSolution;
     protected TestResult testResult;
 
 
@@ -16,8 +16,8 @@ public class Grader {
         testResult.setCorrectSolution(correctSolution);
 
 
-        testResult.executeGrading();
+        Integer errorCode = testResult.executeGrading();
 
-        return 0;
+        return errorCode;
     }
 }

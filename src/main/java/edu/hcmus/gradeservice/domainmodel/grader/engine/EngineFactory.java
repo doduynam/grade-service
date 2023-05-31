@@ -1,13 +1,12 @@
 package edu.hcmus.gradeservice.domainmodel.grader.engine;
 
+import edu.hcmus.gradeservice.domainmodel.IFactory;
 import edu.hcmus.gradeservice.domainmodel.grader.engine.impl.YesNoTemplateGradeEngine;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public enum EngineFactory {
+public enum EngineFactory implements IFactory<IGradeEngine> {
 
     //Using enum for singleton
     INSTANCE;
@@ -19,7 +18,8 @@ public enum EngineFactory {
     };
 
 
-    public IGradeEngine getEngine(String key) {
+    @Override
+    public IGradeEngine get(Object key) {
 
         if (!enginePrototypes.containsKey(key)) {
             return null;
@@ -28,6 +28,5 @@ public enum EngineFactory {
         IGradeEngine engine = enginePrototypes.get(key);
         return engine;
     }
-
 
 }

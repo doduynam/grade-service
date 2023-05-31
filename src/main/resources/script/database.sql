@@ -28,7 +28,7 @@ CREATE TABLE section (
     attempt_id INT DEFAULT NULL,
 
     section_index INT DEFAULT NULL,
-    section_type INT DEFAULT NULL,
+    section_type INT DEFAULT 0,
     PRIMARY KEY(section_id)
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE template_type (
     template_type_id INT NOT NULL AUTO_INCREMENT,
 
     name VARCHAR(255) DEFAULT NULL,
-    key VARCHAR(255) DEFAULT NULL,
+    template_key  VARCHAR(255) DEFAULT NULL,
     description LONGTEXT DEFAULT NULL,
 
     PRIMARY KEY( template_type_id)

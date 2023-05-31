@@ -1,10 +1,10 @@
-package edu.hcmus.gradeservice.domainmodel.test;
+package edu.hcmus.gradeservice.domainmodel.attempt;
 
 import edu.hcmus.gradeservice.domainmodel.section.ISection;
 
 import java.util.Map;
 
-public interface ITest {
+public interface IAttempt {
 
     public Integer getId();
     public Map<Integer, ISection> getSections();

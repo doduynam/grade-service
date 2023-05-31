@@ -3,11 +3,10 @@ package edu.hcmus.gradeservice.domainmodel.grader.result.impl;
 import edu.hcmus.gradeservice.domainmodel.grader.engine.IGradable;
 import edu.hcmus.gradeservice.domainmodel.grader.result.IResultComparable;
 import edu.hcmus.gradeservice.domainmodel.section.ISection;
-import edu.hcmus.gradeservice.domainmodel.test.ITest;
+import edu.hcmus.gradeservice.domainmodel.attempt.IAttempt;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -16,8 +15,8 @@ import java.util.TreeMap;
 public class TestResult implements IGradable, IResultComparable<SectionResult> {
 
     protected Map<Integer, SectionResult> sectionResults;
-    protected ITest userSubmission;
-    protected ITest correctSolution;
+    protected IAttempt userSubmission;
+    protected IAttempt correctSolution;
 
     public TestResult() {
         sectionResults = new TreeMap<>();
