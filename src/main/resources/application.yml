@@ -10,3 +10,6 @@ spring:
     username: root
     password: root
 
+warrior:
+  nodejs-api-url: http://localhost:8090/
+
