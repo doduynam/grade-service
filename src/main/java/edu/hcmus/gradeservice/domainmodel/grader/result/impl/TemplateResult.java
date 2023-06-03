@@ -12,7 +12,7 @@ import java.util.Map;
 @Getter
 public class TemplateResult implements IGradable, IResultComparable<ResultComparison> {
 
-    protected edu.hcmus.gradeservice.nodeapi.model.Template templateHasCorrectAnswer;
+    protected edu.hcmus.gradeservice.thirdparty.warriorcore.model.Template templateHasCorrectAnswer;
     protected Template templateHasUserSubmission;
     protected IGradeEngine gradeEngine;
     protected EngineFactory engineFactory;
@@ -31,7 +31,7 @@ public class TemplateResult implements IGradable, IResultComparable<ResultCompar
         return gradeEngine.getResultComparisons();
     }
 
-    public void setTemplateHasCorrectAnswer(edu.hcmus.gradeservice.nodeapi.model.Template template) {
+    public void setTemplateHasCorrectAnswer(edu.hcmus.gradeservice.thirdparty.warriorcore.model.Template template) {
         this.templateHasCorrectAnswer = template;
         gradeEngine.setCorrectTemplate(template);
     }

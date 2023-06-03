@@ -4,11 +4,10 @@ import edu.hcmus.gradeservice.domainmodel.grader.engine.IGradable;
 import edu.hcmus.gradeservice.domainmodel.grader.result.IResultComparable;
 import edu.hcmus.gradeservice.domainmodel.section.ISection;
 import edu.hcmus.gradeservice.domainmodel.template.Template;
-import edu.hcmus.gradeservice.nodeapi.model.Section;
+import edu.hcmus.gradeservice.thirdparty.warriorcore.model.Section;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -42,8 +41,8 @@ public class SectionResult implements IGradable, IResultComparable<TemplateResul
 
     @Override
     public Integer executeGrading() {
-        for (Map.Entry<Integer, edu.hcmus.gradeservice.nodeapi.model.Template> templateEntry: correctSolution.getTemplateMap().entrySet()) {
-            edu.hcmus.gradeservice.nodeapi.model.Template templateHasCorrectAnswer = templateEntry.getValue();
+        for (Map.Entry<Integer, edu.hcmus.gradeservice.thirdparty.warriorcore.model.Template> templateEntry: correctSolution.getTemplateMap().entrySet()) {
+            edu.hcmus.gradeservice.thirdparty.warriorcore.model.Template templateHasCorrectAnswer = templateEntry.getValue();
             Integer templateIndex = templateHasCorrectAnswer.getTemplateIndex();
             Template templateHasUserSubmission = userSubmission.getTemplates().get(templateIndex);
 

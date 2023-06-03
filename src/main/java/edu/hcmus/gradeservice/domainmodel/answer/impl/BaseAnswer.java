@@ -1,7 +1,7 @@
 package edu.hcmus.gradeservice.domainmodel.answer.impl;
 
 import edu.hcmus.gradeservice.domainmodel.answer.IAnswer;
-import edu.hcmus.gradeservice.nodeapi.model.Answer;
+import edu.hcmus.gradeservice.thirdparty.warriorcore.model.Answer;
 
 public class BaseAnswer implements IAnswer {
 

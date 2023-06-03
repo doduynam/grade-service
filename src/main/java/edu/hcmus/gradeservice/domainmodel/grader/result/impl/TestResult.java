@@ -4,8 +4,8 @@ import edu.hcmus.gradeservice.domainmodel.grader.engine.IGradable;
 import edu.hcmus.gradeservice.domainmodel.grader.result.IResultComparable;
 import edu.hcmus.gradeservice.domainmodel.section.ISection;
 import edu.hcmus.gradeservice.domainmodel.attempt.IAttempt;
-import edu.hcmus.gradeservice.nodeapi.model.Section;
-import edu.hcmus.gradeservice.nodeapi.model.Test;
+import edu.hcmus.gradeservice.thirdparty.warriorcore.model.Section;
+import edu.hcmus.gradeservice.thirdparty.warriorcore.model.Test;
 import lombok.Getter;
 import lombok.Setter;
 

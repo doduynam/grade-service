@@ -4,8 +4,8 @@ import edu.hcmus.gradeservice.domainmodel.answer.impl.YesNoAnswer;
 import edu.hcmus.gradeservice.domainmodel.grader.result.impl.ResultComparison;
 import edu.hcmus.gradeservice.domainmodel.question.IQuestion;
 import edu.hcmus.gradeservice.domainmodel.question.impl.YesNoQuestion;
-import edu.hcmus.gradeservice.nodeapi.model.Answer;
-import edu.hcmus.gradeservice.nodeapi.model.Question;
+import edu.hcmus.gradeservice.thirdparty.warriorcore.model.Answer;
+import edu.hcmus.gradeservice.thirdparty.warriorcore.model.Question;
 
 import java.util.TreeMap;
 

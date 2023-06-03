@@ -1,12 +1,9 @@
-package edu.hcmus.gradeservice.nodeapi.model;
+package edu.hcmus.gradeservice.thirdparty.warriorcore.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import edu.hcmus.gradeservice.entity.QuestionEntity;
-import edu.hcmus.gradeservice.entity.TemplateEntity;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;

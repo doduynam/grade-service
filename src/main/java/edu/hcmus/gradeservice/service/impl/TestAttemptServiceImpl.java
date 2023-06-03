@@ -1,5 +1,7 @@
 package edu.hcmus.gradeservice.service.impl;
 
+import edu.hcmus.gradeservice.domainmodel.grader.Grader;
+import edu.hcmus.gradeservice.domainmodel.grader.result.impl.TestResult;
 import edu.hcmus.gradeservice.entity.QuestionEntity;
 import edu.hcmus.gradeservice.entity.TestAttemptEntity;
 import edu.hcmus.gradeservice.query.request.SubmitRequest;
@@ -8,36 +10,36 @@ import edu.hcmus.gradeservice.repository.QuestionRepository;
 import edu.hcmus.gradeservice.repository.TestAttemptRepository;
 import edu.hcmus.gradeservice.service.QuestionService;
 import edu.hcmus.gradeservice.service.TestAttemptService;
+import edu.hcmus.gradeservice.service.WarriorCoreService;
+import edu.hcmus.gradeservice.thirdparty.warriorcore.model.Test;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class TestAttemptServiceImpl implements TestAttemptService {
 
-  private final TestAttemptRepository testAttemptRepository;
+    private final TestAttemptRepository testAttemptRepository;
+    private final WarriorCoreService warriorCoreService;
 
-//  @Override
-//  public QuestionEntity findQuestionById(long id) {
-//    return questionRepository
-//        .findById(id)
-//        .orElse(
-//            // Mock data
-//            new QuestionEntity()
-//                .setId(1)
-//                .setQuestionIndex(1)
-//                .setContent("Test")
-//                .setOptions("Test")
-//                .setScore(10));
-//  }
+    @Override
+    public SubmitResponse submit(TestAttemptEntity entity) {
 
+        //Save the user submission into database
+        testAttemptRepository.save(entity);
 
-  @Override
-  public SubmitResponse submit(TestAttemptEntity entity) {
+        //Get the correct answer from the Warrior Core (The nodejs backend);
+        Integer testHasCorrectAnswerId = entity.getOriginalTestId();
+        Test testHasCorrectAnswer = warriorCoreService.getTestHasCorrectAnswerById(testHasCorrectAnswerId);
 
-    //Save the user submission into database
-    testAttemptRepository.save(entity);
+        //Start grading
+        Grader grader = new Grader();
+        grader.setCorrectSolution(testHasCorrectAnswer);
+        grader.setUserSubmission(entity.getAttemptEntity().parse());
+        grader.setTestResult(new TestResult());
+        grader.executeGrading();
 
-    return ..;
-  }
+        return SubmitResponse.parse(grader.getTestResult());
+    }
 }

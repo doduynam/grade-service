@@ -1,6 +1,6 @@
 package edu.hcmus.gradeservice.domainmodel.answer;
 
-import edu.hcmus.gradeservice.nodeapi.model.Answer;
+import edu.hcmus.gradeservice.thirdparty.warriorcore.model.Answer;
 
 public interface IAnswer {
     public String getAnswer();

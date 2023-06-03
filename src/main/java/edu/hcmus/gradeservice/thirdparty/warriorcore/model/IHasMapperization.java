@@ -1,4 +1,4 @@
-package edu.hcmus.gradeservice.nodeapi.model;
+package edu.hcmus.gradeservice.thirdparty.warriorcore.model;
 
 public interface IHasMapperization {
 

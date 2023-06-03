@@ -1,14 +1,11 @@
 package edu.hcmus.gradeservice.domainmodel.grader.result.impl;
 
-import edu.hcmus.gradeservice.domainmodel.answer.IAnswer;
 import edu.hcmus.gradeservice.domainmodel.grader.result.IResultComparable;
 import edu.hcmus.gradeservice.domainmodel.question.IQuestion;
-import edu.hcmus.gradeservice.nodeapi.model.Question;
-import lombok.AllArgsConstructor;
+import edu.hcmus.gradeservice.thirdparty.warriorcore.model.Question;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.Map;
 
 @Getter

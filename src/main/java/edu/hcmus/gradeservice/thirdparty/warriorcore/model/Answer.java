@@ -1,8 +1,6 @@
-package edu.hcmus.gradeservice.nodeapi.model;
+package edu.hcmus.gradeservice.thirdparty.warriorcore.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import edu.hcmus.gradeservice.domainmodel.answer.IAnswer;
-import edu.hcmus.gradeservice.entity.AnswerEntity;
 import lombok.Getter;
 import lombok.Setter;
 
