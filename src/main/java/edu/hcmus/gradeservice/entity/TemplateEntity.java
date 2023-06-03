@@ -25,7 +25,7 @@ public class TemplateEntity implements IHasDomainModel {
     private Integer id;
 
     @Basic
-    @Column(name = "template_type_id")
+    @Column(name = "template_type_id", insertable=false, updatable=false)
     private Integer templateTypeId;
 
     @ManyToOne(fetch= FetchType.LAZY)
@@ -56,7 +56,7 @@ public class TemplateEntity implements IHasDomainModel {
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    @JoinColumn(name="question_id", table="question")
+    @JoinColumn(name="question_id")
     private List<QuestionEntity> questions;
 
     public Template parse() {

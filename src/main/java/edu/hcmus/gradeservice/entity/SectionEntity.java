@@ -28,8 +28,7 @@ public class SectionEntity implements IHasDomainModel {
     @Column(name = "section_id")
     private Integer id;
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+    @Basic
     @Column(name = "attempt_id")
     private Integer attemptId;
 
@@ -45,7 +44,7 @@ public class SectionEntity implements IHasDomainModel {
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    @JoinColumn(name="section_id", table="template")
+    @JoinColumn(name="section_id")
     private List<TemplateEntity> templates;
 
     @Override

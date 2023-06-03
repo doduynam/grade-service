@@ -47,7 +47,7 @@ public class AttemptEntity implements IHasDomainModel {
           fetch = FetchType.LAZY,
           cascade = CascadeType.ALL,
           orphanRemoval = true)
-    @JoinColumn(name="attempt_id", table="section")
+    @JoinColumn(name="attempt_id")
     private List<SectionEntity> sections;
 
     @Override

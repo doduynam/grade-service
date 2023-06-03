@@ -32,7 +32,7 @@ public class AnswerEntity implements IHasDomainModel {
   private String options;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "question_id")
+  @JoinColumn(name = "question_id", insertable = false, updatable = false)
   private QuestionEntity question;
 
   @Override

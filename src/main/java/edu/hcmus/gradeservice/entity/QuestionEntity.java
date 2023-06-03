@@ -50,11 +50,11 @@ public class QuestionEntity implements IHasDomainModel{
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    @JoinColumn(name="answer_id", table="answer")
+    @JoinColumn(name="answer_id")
     private List<AnswerEntity> answers;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "template_id")
+    @JoinColumn(name = "template_id", insertable = false, updatable = false)
     private TemplateEntity template;
 
     @Override
