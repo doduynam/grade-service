@@ -4,6 +4,8 @@ import edu.hcmus.gradeservice.domainmodel.grader.engine.IGradable;
 import edu.hcmus.gradeservice.domainmodel.grader.result.IResultComparable;
 import edu.hcmus.gradeservice.domainmodel.section.ISection;
 import edu.hcmus.gradeservice.domainmodel.attempt.IAttempt;
+import edu.hcmus.gradeservice.nodeapi.model.Section;
+import edu.hcmus.gradeservice.nodeapi.model.Test;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +18,7 @@ public class TestResult implements IGradable, IResultComparable<SectionResult> {
 
     protected Map<Integer, SectionResult> sectionResults;
     protected IAttempt userSubmission;
-    protected IAttempt correctSolution;
+    protected Test correctSolution;
 
     public TestResult() {
         sectionResults = new TreeMap<>();
@@ -39,10 +41,10 @@ public class TestResult implements IGradable, IResultComparable<SectionResult> {
 
     @Override
     public Integer executeGrading() {
-        for (Map.Entry<Integer, ISection> sectionEntry: correctSolution.getSections().entrySet()) {
-            ISection sectionHasCorrectAnswer = sectionEntry.getValue();
-            Integer sectionIndex = sectionHasCorrectAnswer.getIndex();
-            ISection sectionHasUserSubmission = correctSolution.getSections().get(sectionIndex);
+        for (Map.Entry<Integer, Section> sectionEntry: correctSolution.getSectionMap().entrySet()) {
+            Section sectionHasCorrectAnswer = sectionEntry.getValue();
+            Integer sectionIndex = sectionHasCorrectAnswer.getSectionIndex();
+            ISection sectionHasUserSubmission = userSubmission.getSections().get(sectionIndex);
 
             //Build and run the section result
             SectionResult sectionResult = new SectionResult();

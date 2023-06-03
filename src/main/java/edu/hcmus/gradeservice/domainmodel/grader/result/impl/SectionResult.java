@@ -4,6 +4,7 @@ import edu.hcmus.gradeservice.domainmodel.grader.engine.IGradable;
 import edu.hcmus.gradeservice.domainmodel.grader.result.IResultComparable;
 import edu.hcmus.gradeservice.domainmodel.section.ISection;
 import edu.hcmus.gradeservice.domainmodel.template.Template;
+import edu.hcmus.gradeservice.nodeapi.model.Section;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,7 +18,7 @@ public class SectionResult implements IGradable, IResultComparable<TemplateResul
 
     protected Map<Integer, TemplateResult> templateResults;
     protected ISection userSubmission;
-    protected ISection correctSolution;
+    protected Section correctSolution;
 
     public SectionResult() {
         templateResults = new TreeMap<>();
@@ -41,9 +42,9 @@ public class SectionResult implements IGradable, IResultComparable<TemplateResul
 
     @Override
     public Integer executeGrading() {
-        for (Map.Entry<Integer, Template> templateEntry: correctSolution.getTemplates().entrySet()) {
-            Template templateHasCorrectAnswer = templateEntry.getValue();
-            Integer templateIndex = templateHasCorrectAnswer.getIndex();
+        for (Map.Entry<Integer, edu.hcmus.gradeservice.nodeapi.model.Template> templateEntry: correctSolution.getTemplateMap().entrySet()) {
+            edu.hcmus.gradeservice.nodeapi.model.Template templateHasCorrectAnswer = templateEntry.getValue();
+            Integer templateIndex = templateHasCorrectAnswer.getTemplateIndex();
             Template templateHasUserSubmission = userSubmission.getTemplates().get(templateIndex);
 
             //Build and run the template result

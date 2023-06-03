@@ -4,14 +4,14 @@ import edu.hcmus.gradeservice.domainmodel.grader.engine.IGradeEngine;
 import edu.hcmus.gradeservice.domainmodel.grader.result.impl.ResultComparison;
 import edu.hcmus.gradeservice.domainmodel.question.IQuestion;
 import edu.hcmus.gradeservice.domainmodel.template.Template;
+import edu.hcmus.gradeservice.nodeapi.model.Question;
 
 import java.util.Map;
 
 public class BaseGradeEngine implements IGradeEngine {
 
     protected Template userSubmissionTemplate;
-    protected Template correctTemplate;
-
+    protected edu.hcmus.gradeservice.nodeapi.model.Template correctTemplate;
 
     protected Integer totalScore;
     protected Map<Integer, ResultComparison> resultComparisons;
@@ -31,7 +31,7 @@ public class BaseGradeEngine implements IGradeEngine {
     }
 
     @Override
-    public Template getCorrectTemplate() {
+    public edu.hcmus.gradeservice.nodeapi.model.Template getCorrectTemplate() {
         return correctTemplate;
     }
 
@@ -41,7 +41,7 @@ public class BaseGradeEngine implements IGradeEngine {
     }
 
     @Override
-    public void setCorrectTemplate(Template template) {
+    public void setCorrectTemplate(edu.hcmus.gradeservice.nodeapi.model.Template template) {
         this.correctTemplate = template;
     }
 
@@ -50,7 +50,7 @@ public class BaseGradeEngine implements IGradeEngine {
         return 0;
     }
     @Override
-    public Integer executeComparison(IQuestion questionHasCorrectAnswer, IQuestion questionHasUserSubmission) {
+    public Integer executeComparison(Question questionHasCorrectAnswer, IQuestion questionHasUserSubmission) {
         return 0;
     }
     @Override
@@ -69,12 +69,12 @@ public class BaseGradeEngine implements IGradeEngine {
         }
 
         //Handling main process
-        for (Map.Entry<Integer, IQuestion> questionEntry: correctTemplate.getQuestions().entrySet()) {
+        for (Map.Entry<Integer, Question> questionEntry: correctTemplate.getQuestionMap().entrySet()) {
 
             //Both question has correct answer and question has user submission
             //  has the same index
-            IQuestion questionHasCorrectAnswer = questionEntry.getValue();
-            Integer questionIndex = questionHasCorrectAnswer.getIndex();
+            Question questionHasCorrectAnswer = questionEntry.getValue();
+            Integer questionIndex = questionHasCorrectAnswer.getQuestionIndex();
             IQuestion questionHasUserSubmission = userSubmissionTemplate.getQuestions().get(questionIndex);
 
             //Execute to compare the correct answer with user answer

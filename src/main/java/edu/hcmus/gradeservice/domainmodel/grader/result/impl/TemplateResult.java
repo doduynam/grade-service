@@ -12,7 +12,7 @@ import java.util.Map;
 @Getter
 public class TemplateResult implements IGradable, IResultComparable<ResultComparison> {
 
-    protected Template templateHasCorrectAnswer;
+    protected edu.hcmus.gradeservice.nodeapi.model.Template templateHasCorrectAnswer;
     protected Template templateHasUserSubmission;
     protected IGradeEngine gradeEngine;
     protected EngineFactory engineFactory;
@@ -31,7 +31,7 @@ public class TemplateResult implements IGradable, IResultComparable<ResultCompar
         return gradeEngine.getResultComparisons();
     }
 
-    public void setTemplateHasCorrectAnswer(Template template) {
+    public void setTemplateHasCorrectAnswer(edu.hcmus.gradeservice.nodeapi.model.Template template) {
         this.templateHasCorrectAnswer = template;
         gradeEngine.setCorrectTemplate(template);
     }
@@ -41,8 +41,8 @@ public class TemplateResult implements IGradable, IResultComparable<ResultCompar
         gradeEngine.setUserSubmissionTemplate(template);
     }
 
-    private String chooseEngine() {
-        String engineKey = this.templateHasCorrectAnswer.getTemplateType().getKey();
+    private Integer chooseEngine() {
+        Integer engineKey = this.templateHasCorrectAnswer.getTemplateTypeId();
         IGradeEngine engine = engineFactory.get(engineKey);
         this.gradeEngine = engine;
 
@@ -59,7 +59,7 @@ public class TemplateResult implements IGradable, IResultComparable<ResultCompar
         Integer errorCode = 1;  //Default errorCode is error
 
         //Set engine base on the type of template first
-        String engineKey = chooseEngine();
+        Integer engineKey = chooseEngine();
         if (null == engineKey) {
             return errorCode;
         }

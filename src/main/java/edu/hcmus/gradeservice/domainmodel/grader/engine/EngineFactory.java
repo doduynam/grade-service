@@ -11,9 +11,9 @@ public enum EngineFactory implements IFactory<IGradeEngine> {
     //Using enum for singleton
     INSTANCE;
 
-    private Map<String, IGradeEngine> enginePrototypes = new HashMap<>() {
+    private Map<Integer, IGradeEngine> enginePrototypes = new HashMap<>() {
         {
-            put("yes-no-type", new YesNoTemplateGradeEngine());
+            put(1, new YesNoTemplateGradeEngine());
         }
     };
 

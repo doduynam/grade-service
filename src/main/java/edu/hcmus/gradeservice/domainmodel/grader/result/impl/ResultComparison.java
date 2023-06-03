@@ -3,6 +3,7 @@ package edu.hcmus.gradeservice.domainmodel.grader.result.impl;
 import edu.hcmus.gradeservice.domainmodel.answer.IAnswer;
 import edu.hcmus.gradeservice.domainmodel.grader.result.IResultComparable;
 import edu.hcmus.gradeservice.domainmodel.question.IQuestion;
+import edu.hcmus.gradeservice.nodeapi.model.Question;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,7 @@ import java.util.Map;
 @Setter
 public class ResultComparison implements IResultComparable<ResultComparison> {
 
-    protected IQuestion questionHasCorrectAnswer;
+    protected Question questionHasCorrectAnswer;
     protected IQuestion questionHasUserSubmissionAnswer;
     protected Integer score;
     protected Boolean isCorrect;

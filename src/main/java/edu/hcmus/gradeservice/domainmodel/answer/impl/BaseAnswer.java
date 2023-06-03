@@ -1,6 +1,7 @@
 package edu.hcmus.gradeservice.domainmodel.answer.impl;
 
 import edu.hcmus.gradeservice.domainmodel.answer.IAnswer;
+import edu.hcmus.gradeservice.nodeapi.model.Answer;
 
 public class BaseAnswer implements IAnswer {
 
@@ -23,7 +24,7 @@ public class BaseAnswer implements IAnswer {
     public void setOptions(String options) {this.options = options;}
 
     @Override
-    public boolean compareAnswer(IAnswer answer) {
-        return this.getAnswer().equals(answer.getAnswer());
+    public boolean checkAnswer(Answer answer) {
+        return this.getAnswer().equals(answer.getContent());
     }
 }
