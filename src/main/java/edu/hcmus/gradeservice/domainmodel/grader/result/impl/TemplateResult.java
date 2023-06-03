@@ -43,7 +43,7 @@ public class TemplateResult implements IGradable, IResultComparable<ResultCompar
 
     private String chooseEngine() {
         String engineKey = this.templateHasCorrectAnswer.getTemplateType().getKey();
-        IGradeEngine engine = engineFactory.getEngine(engineKey);
+        IGradeEngine engine = engineFactory.get(engineKey);
         this.gradeEngine = engine;
 
         if (null == engine) {

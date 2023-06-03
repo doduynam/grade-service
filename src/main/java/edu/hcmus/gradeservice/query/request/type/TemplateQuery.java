@@ -1,21 +1,12 @@
-package edu.hcmus.gradeservice.query.type;
+package edu.hcmus.gradeservice.query.request.type;
 
-import edu.hcmus.gradeservice.domainmodel.question.IQuestion;
-import edu.hcmus.gradeservice.domainmodel.template.Template;
-import edu.hcmus.gradeservice.domainmodel.templatetype.TemplateType;
-import edu.hcmus.gradeservice.entity.IHasDomainModel;
 import edu.hcmus.gradeservice.entity.QuestionEntity;
 import edu.hcmus.gradeservice.entity.TemplateEntity;
-import edu.hcmus.gradeservice.entity.TemplateTypeEntity;
-import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 @Getter
 @Setter

@@ -1,12 +1,6 @@
-package edu.hcmus.gradeservice.query.type;
+package edu.hcmus.gradeservice.query.request.type;
 
-import edu.hcmus.gradeservice.domainmodel.answer.AnswerFactory;
-import edu.hcmus.gradeservice.domainmodel.answer.IAnswer;
 import edu.hcmus.gradeservice.entity.AnswerEntity;
-import edu.hcmus.gradeservice.entity.IHasDomainModel;
-import edu.hcmus.gradeservice.entity.QuestionEntity;
-import jakarta.persistence.*;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

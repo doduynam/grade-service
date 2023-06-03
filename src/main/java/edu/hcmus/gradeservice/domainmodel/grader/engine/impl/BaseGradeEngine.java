@@ -25,7 +25,6 @@ public class BaseGradeEngine implements IGradeEngine {
         return resultComparisons;
     };
 
-
     @Override
     public Template getUserSubmissionTemplate() {
         return userSubmissionTemplate;
