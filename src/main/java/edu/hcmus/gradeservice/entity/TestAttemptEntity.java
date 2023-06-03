@@ -1,5 +1,6 @@
 package edu.hcmus.gradeservice.entity;
 
+import edu.hcmus.gradeservice.domainmodel.attempt.IAttempt;
 import edu.hcmus.gradeservice.domainmodel.testattempt.TestAttempt;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -23,10 +24,6 @@ public class TestAttemptEntity implements IHasDomainModel {
   private Integer userId;
 
   @Basic
-  @Column(name = "attempt_id")
-  private Integer attemptId;
-
-  @Basic
   @Column(name = "original_test_id")
   private Integer originalTestId;
 
@@ -42,6 +39,13 @@ public class TestAttemptEntity implements IHasDomainModel {
   @Column(name = "ended_at")
   private java.sql.Timestamp endedAt;
 
+  @OneToOne(
+          cascade = CascadeType.ALL,
+          fetch = FetchType.LAZY,
+          optional = true)
+  @JoinColumn(name = "attempt_id", referencedColumnName = "attempt_id")
+  private AttemptEntity attemptEntity;
+
   @Override
   public TestAttempt parse() {
     TestAttempt obj = new TestAttempt();
@@ -51,6 +55,10 @@ public class TestAttemptEntity implements IHasDomainModel {
     obj.setState(state);
     obj.setStartedAt(startedAt);
     obj.setEndedAt(endedAt);
+
+    IAttempt attempt = attemptEntity.parse();
+    obj.setAttempt(attempt);
+
     return obj;
   }
 }

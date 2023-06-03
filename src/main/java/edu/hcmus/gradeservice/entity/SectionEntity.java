@@ -48,6 +48,7 @@ public class SectionEntity implements IHasDomainModel {
     @JoinColumn(name="section_id", table="template")
     private List<TemplateEntity> templates;
 
+    @Override
     public ISection parse() {
 
       ISection obj = SectionFactory.INSTANCE.get(sectionType);

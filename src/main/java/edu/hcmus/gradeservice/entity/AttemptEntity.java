@@ -20,48 +20,54 @@ import java.util.TreeMap;
 @Setter
 public class AttemptEntity implements IHasDomainModel {
 
-      @GeneratedValue(strategy = GenerationType.IDENTITY)
-      @Id
-      @Column(name = "attempt_id")
-      private Integer id;
 
-      @Basic
-      @Column(name = "title")
-      private String title;
 
-      @Basic
-      @Column(name = "test_type")
-      private Integer testType;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @Column(name = "attempt_id")
+    private Integer id;
 
-      @Basic
-      @Column(name = "test_level")
-      private Integer testLevel;
+    @Basic
+    @Column(name = "test_attempt_id")
+    private Integer testAttemptId;
 
-      @OneToMany(
-              fetch = FetchType.LAZY,
-              cascade = CascadeType.ALL,
-              orphanRemoval = true)
-      @JoinColumn(name="attempt_id", table="section")
-      private List<SectionEntity> sections;
+    @Basic
+    @Column(name = "title")
+    private String title;
 
-      @Override
-      public IAttempt parse() {
-          IAttempt obj = AttemptFactory.INSTANCE.get(testType);
-          if (null == obj) {
-              return null;
-          }
+    @Basic
+    @Column(name = "test_type")
+    private Integer testType;
 
-          obj.setId(id);
+    @Basic
+    @Column(name = "test_level")
+    private Integer testLevel;
 
-          //Build the section map
-          Map<Integer, ISection> sectionMap = new TreeMap<>();
-          for (SectionEntity sectionEntity: sections) {
-              Integer index = sectionEntity.getSectionIndex();
-              ISection section = sectionEntity.parse();
-              sectionMap.put(index, section);
-          }
-          obj.setSections(sectionMap);
+    @OneToMany(
+          fetch = FetchType.LAZY,
+          cascade = CascadeType.ALL,
+          orphanRemoval = true)
+    @JoinColumn(name="attempt_id", table="section")
+    private List<SectionEntity> sections;
 
-          return obj;
-      }
+    @Override
+    public IAttempt parse() {
+        IAttempt obj = AttemptFactory.INSTANCE.get(testType);
+        if (null == obj) {
+          return null;
+        }
+
+        obj.setId(id);
+
+        //Build the section map
+        Map<Integer, ISection> sectionMap = new TreeMap<>();
+        for (SectionEntity sectionEntity: sections) {
+          Integer index = sectionEntity.getSectionIndex();
+          ISection section = sectionEntity.parse();
+          sectionMap.put(index, section);
+        }
+        obj.setSections(sectionMap);
+
+        return obj;
+    }
 }

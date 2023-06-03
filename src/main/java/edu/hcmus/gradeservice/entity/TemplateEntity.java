@@ -66,8 +66,10 @@ public class TemplateEntity implements IHasDomainModel {
         template.setIndex(templateIndex);
         template.setContent(content);
 
-        TemplateType templateTypeDomainModel = templateType.parse();
-        template.setTemplateType(templateTypeDomainModel);
+        if (null != templateType) {
+            TemplateType templateTypeDomainModel = templateType.parse();
+            template.setTemplateType(templateTypeDomainModel);
+        }
 
         Map<Integer, IQuestion> questionMap = new TreeMap<>();
         for (QuestionEntity questionEntity: questions) {

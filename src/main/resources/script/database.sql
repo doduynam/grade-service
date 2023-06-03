@@ -4,7 +4,6 @@ USE state_management;
 CREATE TABLE test_attempt (
   test_attempt_id INT NOT NULL AUTO_INCREMENT,
   user_id INT DEFAULT NULL,
-  attempt_id INT DEFAULT NULL,
   original_test_id INT DEFAULT NULL,
 
   state INT DEFAULT NULL,
@@ -16,6 +15,7 @@ CREATE TABLE test_attempt (
 
 CREATE TABLE attempt (
     attempt_id INT NOT NULL AUTO_INCREMENT,
+    test_attempt_id INT DEFAULT NULL,
 
     title TEXT DEFAULT NULL,
     test_type INT DEFAULT NULL,
