@@ -25,6 +25,10 @@ public class BaseAnswer implements IAnswer {
 
     @Override
     public boolean checkAnswer(Answer answer) {
-        return this.getAnswer().equals(answer.getContent());
+
+        String thisAnswer = this.getAnswer().trim().toLowerCase();
+        String thatAnswer = answer.getContent().trim().toLowerCase();
+
+        return thisAnswer.equals(thatAnswer);
     }
 }

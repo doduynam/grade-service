@@ -37,7 +37,7 @@ public class TestAttemptQuery implements IHasEntity {
     entity.setEndedAt(java.sql.Timestamp.from(Instant.ofEpochSecond(endedAt)));
 
     AttemptEntity attemptEntity = attempt.parse();
-    entity.setAttemptEntity(attemptEntity);
+    entity.setAttempt(attemptEntity);
 
     return entity;
   }

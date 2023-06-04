@@ -59,7 +59,8 @@ public class SectionEntity implements IHasDomainModel {
       obj.setIndex(sectionIndex);
 
       //Build the map
-      Map<Integer, Template> templateMap = new TreeMap<>();;
+      Map<Integer, Template> templateMap = new TreeMap<>();
+
       for (TemplateEntity templateEntity: templates) {
         Integer index = templateEntity.getTemplateIndex();
         Template template = templateEntity.parse();

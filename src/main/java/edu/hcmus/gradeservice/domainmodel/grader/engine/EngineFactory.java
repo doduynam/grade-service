@@ -1,6 +1,11 @@
 package edu.hcmus.gradeservice.domainmodel.grader.engine;
 
 import edu.hcmus.gradeservice.domainmodel.IFactory;
+import edu.hcmus.gradeservice.domainmodel.answer.impl.MultipleChoiceAnswer;
+import edu.hcmus.gradeservice.domainmodel.answer.impl.YesNoAnswer;
+import edu.hcmus.gradeservice.domainmodel.grader.engine.impl.MultipleChoiceGradeEngine;
+import edu.hcmus.gradeservice.domainmodel.grader.engine.impl.SentenceCompletionGradeEngine;
+import edu.hcmus.gradeservice.domainmodel.grader.engine.impl.ShortAnswerGradeEngine;
 import edu.hcmus.gradeservice.domainmodel.grader.engine.impl.YesNoTemplateGradeEngine;
 
 import java.util.HashMap;
@@ -11,22 +16,21 @@ public enum EngineFactory implements IFactory<IGradeEngine> {
     //Using enum for singleton
     INSTANCE;
 
-    private Map<Integer, IGradeEngine> enginePrototypes = new HashMap<>() {
-        {
-            put(1, new YesNoTemplateGradeEngine());
-        }
-    };
-
-
     @Override
     public IGradeEngine get(Object key) {
 
-        if (!enginePrototypes.containsKey(key)) {
-            return null;
+        IGradeEngine prototype = null;
+        if (key.equals(1)) {
+            prototype = new YesNoTemplateGradeEngine();
+        } else if (key.equals(2)) {
+            prototype = new MultipleChoiceGradeEngine();
+        } else if (key.equals(3)) {
+            prototype = new ShortAnswerGradeEngine();
+        } else if (key.equals(4)) {
+            prototype = new SentenceCompletionGradeEngine();
         }
 
-        IGradeEngine engine = enginePrototypes.get(key);
-        return engine;
+        return prototype;
     }
 
 }

@@ -41,6 +41,7 @@ public class TestResult implements IGradable, IResultComparable<SectionResult> {
 
     @Override
     public Integer executeGrading() {
+
         for (Map.Entry<Integer, Section> sectionEntry: correctSolution.getSectionMap().entrySet()) {
             Section sectionHasCorrectAnswer = sectionEntry.getValue();
             Integer sectionIndex = sectionHasCorrectAnswer.getSectionIndex();

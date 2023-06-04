@@ -27,7 +27,7 @@ public class QuestionEntity implements IHasDomainModel{
     private Integer id;
 
     @Basic
-    @Column(name = "template_id")
+    @Column(name = "template_id", insertable = false, updatable = false)
     private Integer templateId;
 
     @Basic
@@ -54,7 +54,7 @@ public class QuestionEntity implements IHasDomainModel{
     private List<AnswerEntity> answers;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "template_id", insertable = false, updatable = false)
+    @JoinColumn(name = "template_id")
     private TemplateEntity template;
 
     @Override

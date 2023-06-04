@@ -42,9 +42,9 @@ public class TestAttemptEntity implements IHasDomainModel {
   @OneToOne(
           cascade = CascadeType.ALL,
           fetch = FetchType.LAZY,
-          optional = true)
-  @JoinColumn(name = "test_attempt_id")
-  private AttemptEntity attemptEntity;
+          optional = false)
+  @JoinColumn(name="test_attempt_id", updatable = false, insertable = false)
+  private AttemptEntity attempt;
 
   @Override
   public TestAttempt parse() {
@@ -56,8 +56,9 @@ public class TestAttemptEntity implements IHasDomainModel {
     obj.setStartedAt(startedAt);
     obj.setEndedAt(endedAt);
 
-    IAttempt attempt = attemptEntity.parse();
-    obj.setAttempt(attempt);
+    IAttempt attemptContainer = attempt.parse();
+
+    obj.setAttempt(attemptContainer);
 
     return obj;
   }
