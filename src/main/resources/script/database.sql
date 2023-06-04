@@ -91,4 +91,5 @@ CREATE TABLE paragraph (
 INSERT INTO template_type (template_type_id, name, template_key, description) VALUES
     (1, "Yes/No/Not Given Type", "yes-no-type", "The question type, which could only answer by selecting Yes/No/Not Givem"),
     (2, "Multiple Choice", "multiple-choice", "The question type, which could only answer by selecting A/B/C/D"),
-    (3, "Short Answer", "short-answer", "The question type, which could only answer writing some short words");;
+    (3, "Short Answer", "short-answer", "The question type, which could only answer by writing some short words"),
+    (4, "Sentence Completion", "sentence-completion", "The question type, which could only answer by filling the blank with sentence");
