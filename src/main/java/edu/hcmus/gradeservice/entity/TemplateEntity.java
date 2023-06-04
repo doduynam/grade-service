@@ -25,11 +25,11 @@ public class TemplateEntity implements IHasDomainModel {
     private Integer id;
 
     @Basic
-    @Column(name = "template_type_id", insertable=false, updatable=false)
+    @Column(name = "template_type_id")
     private Integer templateTypeId;
 
     @ManyToOne(fetch= FetchType.LAZY)
-    @JoinColumn(name = "template_type_id")
+    @JoinColumn(name = "template_type_id", insertable=false, updatable=false)
     private TemplateTypeEntity templateType;
 
     @Basic

@@ -67,8 +67,9 @@ public class QuestionEntity implements IHasDomainModel{
         question.setIndex(questionIndex);
 
         List<IAnswer> answerList = new ArrayList<>();
-        for (AnswerEntity answer: answers) {
-          answerList.add(answer.parse());
+        for (AnswerEntity answerEntity: answers) {
+            IAnswer answer = answerEntity.parse();
+            answerList.add(answer);
         }
         question.setAnswers(answerList);
 

@@ -43,7 +43,7 @@ public class TestAttemptEntity implements IHasDomainModel {
           cascade = CascadeType.ALL,
           fetch = FetchType.LAZY,
           optional = true)
-  @JoinColumn(name = "attempt_id")
+  @JoinColumn(name = "test_attempt_id")
   private AttemptEntity attemptEntity;
 
   @Override

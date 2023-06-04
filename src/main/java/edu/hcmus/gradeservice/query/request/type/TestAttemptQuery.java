@@ -5,6 +5,8 @@ import edu.hcmus.gradeservice.entity.TestAttemptEntity;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.Instant;
+
 @Getter
 @Setter
 public class TestAttemptQuery implements IHasEntity {
@@ -17,11 +19,11 @@ public class TestAttemptQuery implements IHasEntity {
 
   private Integer state;
 
-  private java.sql.Timestamp startedAt;
+  private Long startedAt;
 
-  private java.sql.Timestamp endedAt;
+  private Long endedAt;
 
-  private AttemptQuery attemptQuery;
+  private AttemptQuery attempt;
 
   @Override
   public TestAttemptEntity parse() {
@@ -30,10 +32,11 @@ public class TestAttemptQuery implements IHasEntity {
     entity.setUserId(userId);
     entity.setOriginalTestId(originalTestId);
     entity.setState(state);
-    entity.setStartedAt(startedAt);
-    entity.setEndedAt(endedAt);
 
-    AttemptEntity attemptEntity = attemptQuery.parse();
+    entity.setStartedAt(java.sql.Timestamp.from(Instant.ofEpochSecond(startedAt)));
+    entity.setEndedAt(java.sql.Timestamp.from(Instant.ofEpochSecond(endedAt)));
+
+    AttemptEntity attemptEntity = attempt.parse();
     entity.setAttemptEntity(attemptEntity);
 
     return entity;

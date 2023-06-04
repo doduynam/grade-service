@@ -18,7 +18,7 @@ public class TestAttemptController {
     private final TestAttemptService testAttemptService;
 
     @QueryMapping
-    public SubmitResponse submit (SubmitRequest request) {
+    public SubmitResponse submit (@Argument("submission") SubmitRequest request) {
 
         TestAttemptQuery testAttempt = request.getTestAttempt();
         SubmitResponse response = testAttemptService.submit(testAttempt.parse());

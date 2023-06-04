@@ -31,7 +31,7 @@ public class TemplateQuery implements IHasEntity {
     public TemplateEntity parse() {
         TemplateEntity entity = new TemplateEntity();
         entity.setId(id);
-        entity.setTemplateTypeId(id);
+        entity.setTemplateTypeId(templateTypeId);
         entity.setSectionId(sectionId);
         entity.setTemplateIndex(templateIndex);
         entity.setTitle(title);

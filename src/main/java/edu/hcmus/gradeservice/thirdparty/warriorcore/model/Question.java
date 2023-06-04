@@ -29,7 +29,7 @@ public class Question {
     @JsonProperty("score")
     private Integer score;
 
-    @JsonProperty("answer")
+    @JsonProperty("answers")
     private List<Answer> answers;
 
 }

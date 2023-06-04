@@ -3,7 +3,7 @@ type Query {
 }
 
 input SubmitRequest {
-    testAttempts: [TestAttemptQuery!]!
+    testAttempt: TestAttemptQuery!
 }
 
 input TestAttemptQuery {
@@ -28,7 +28,7 @@ input AttemptQuery {
 
 input SectionQuery {
     id: Int
-    attemptId: Int!
+    attemptId: Int
     sectionIndex: Int!
     sectionType: Int
 
@@ -39,7 +39,7 @@ input SectionQuery {
 input TemplateQuery {
     id: Int
     templateTypeId: Int!
-    sectionId: Int!
+    sectionId: Int
     templateIndex: Int!
     title: String
     content: String
@@ -50,7 +50,7 @@ input TemplateQuery {
 
 input QuestionQuery {
     id: Int
-    templateId: Int!
+    templateId: Int
     questionIndex: Int!
     content: String
     options: String
@@ -61,7 +61,7 @@ input QuestionQuery {
 
 input AnswerQuery {
     id: Int
-    questionId: Int!
+    questionId: Int
     content: String!
     options: String
 }

@@ -1,5 +1,6 @@
 package edu.hcmus.gradeservice.thirdparty.warriorcore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +28,7 @@ public class Test implements IHasMapperization {
     @JsonProperty("sections")
     private List<Section> sections;
 
+    @JsonIgnore
     private Map<Integer, Section> sectionMap = new TreeMap<>();
 
     @Override

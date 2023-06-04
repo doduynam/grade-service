@@ -40,6 +40,7 @@ public class QuestionQuery implements IHasEntity {
             answerEntity.setQuestion(entity);
             buffer.add(answerEntity);
         }
+        entity.setAnswers(buffer);
 
         return entity;
     }

@@ -33,12 +33,12 @@ public class TemplateResult implements IGradable, IResultComparable<ResultCompar
 
     public void setTemplateHasCorrectAnswer(edu.hcmus.gradeservice.thirdparty.warriorcore.model.Template template) {
         this.templateHasCorrectAnswer = template;
-        gradeEngine.setCorrectTemplate(template);
+//        gradeEngine.setCorrectTemplate(template);
     }
 
     public void setTemplateHasUserSubmission(Template template) {
         this.templateHasUserSubmission = template;
-        gradeEngine.setUserSubmissionTemplate(template);
+//        gradeEngine.setUserSubmissionTemplate(template);
     }
 
     private Integer chooseEngine() {
@@ -60,6 +60,7 @@ public class TemplateResult implements IGradable, IResultComparable<ResultCompar
 
         //Set engine base on the type of template first
         Integer engineKey = chooseEngine();
+
         if (null == engineKey) {
             return errorCode;
         }

@@ -11,10 +11,13 @@ import edu.hcmus.gradeservice.repository.TestAttemptRepository;
 import edu.hcmus.gradeservice.service.QuestionService;
 import edu.hcmus.gradeservice.service.TestAttemptService;
 import edu.hcmus.gradeservice.service.WarriorCoreService;
+import edu.hcmus.gradeservice.thirdparty.warriorcore.model.Section;
 import edu.hcmus.gradeservice.thirdparty.warriorcore.model.Test;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -32,12 +35,12 @@ public class TestAttemptServiceImpl implements TestAttemptService {
         //Get the correct answer from the Warrior Core (The nodejs backend);
         Integer testHasCorrectAnswerId = entity.getOriginalTestId();
         Test testHasCorrectAnswer = warriorCoreService.getTestHasCorrectAnswerById(testHasCorrectAnswerId);
+        testHasCorrectAnswer.mapperize();
 
         //Start grading
         Grader grader = new Grader();
         grader.setCorrectSolution(testHasCorrectAnswer);
         grader.setUserSubmission(entity.getAttemptEntity().parse());
-        grader.setTestResult(new TestResult());
         grader.executeGrading();
 
         return SubmitResponse.parse(grader.getTestResult());

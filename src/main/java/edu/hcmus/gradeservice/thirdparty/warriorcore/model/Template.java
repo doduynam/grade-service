@@ -1,5 +1,6 @@
 package edu.hcmus.gradeservice.thirdparty.warriorcore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,6 +37,7 @@ public class Template implements IHasMapperization {
     @JsonProperty("questions")
     private List<Question> questions;
 
+    @JsonIgnore
     private Map<Integer, Question> questionMap = new TreeMap<>();
 
     @Override
@@ -43,5 +45,6 @@ public class Template implements IHasMapperization {
         for (Question question: questions) {
             questionMap.put(question.getQuestionIndex(), question);
         }
+
     }
 }
