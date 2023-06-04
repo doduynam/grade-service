@@ -1,8 +1,12 @@
 package edu.hcmus.gradeservice.domainmodel.question;
 
 import edu.hcmus.gradeservice.domainmodel.IFactory;
+import edu.hcmus.gradeservice.domainmodel.answer.impl.MultipleChoiceAnswer;
 import edu.hcmus.gradeservice.domainmodel.attempt.IAttempt;
 import edu.hcmus.gradeservice.domainmodel.attempt.impl.BaseAttempt;
+import edu.hcmus.gradeservice.domainmodel.grader.engine.impl.MultipleChoiceGradeEngine;
+import edu.hcmus.gradeservice.domainmodel.grader.engine.impl.YesNoTemplateGradeEngine;
+import edu.hcmus.gradeservice.domainmodel.question.impl.MultipleChoiceQuestion;
 import edu.hcmus.gradeservice.domainmodel.question.impl.YesNoQuestion;
 
 import java.util.HashMap;
@@ -12,18 +16,17 @@ public enum QuestionFactory implements IFactory<IQuestion> {
 
     INSTANCE;
 
-    private Map<Integer, IQuestion> prototypes = new HashMap<>() {
-        {
-            put(1, new YesNoQuestion());
-        }
-    };
-
     @Override
     public IQuestion get(Object key) {
-        if (!prototypes.containsKey(key)) {
-            return null;
+        IQuestion prototype = null;
+
+        if (key.equals(1)) {
+            prototype = new YesNoQuestion();
+        } else if (key.equals(2)) {
+            prototype = new MultipleChoiceQuestion();
         }
 
-        return prototypes.get(key);
+
+        return prototype;
     }
 }

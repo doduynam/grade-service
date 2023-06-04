@@ -67,6 +67,7 @@ public class TemplateResult implements IGradable, IResultComparable<ResultCompar
 
         gradeEngine.setCorrectTemplate(templateHasCorrectAnswer);
         gradeEngine.setUserSubmissionTemplate(templateHasUserSubmission);
+
         errorCode = gradeEngine.executeGrading();
 
         return errorCode;

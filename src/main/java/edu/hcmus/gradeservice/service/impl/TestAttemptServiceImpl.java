@@ -40,7 +40,7 @@ public class TestAttemptServiceImpl implements TestAttemptService {
         //Start grading
         Grader grader = new Grader();
         grader.setCorrectSolution(testHasCorrectAnswer);
-        grader.setUserSubmission(entity.getAttemptEntity().parse());
+        grader.setUserSubmission(entity.getAttempt().parse());
         grader.executeGrading();
 
         return SubmitResponse.parse(grader.getTestResult());

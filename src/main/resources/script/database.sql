@@ -89,4 +89,5 @@ CREATE TABLE paragraph (
 );
 
 INSERT INTO template_type (template_type_id, name, template_key, description) VALUES
-    (1, "Yes/No/Not Given Type", "yes-no-type", "The question type, which could only answer by selecting Yes/No/Not Givem");
+    (1, "Yes/No/Not Given Type", "yes-no-type", "The question type, which could only answer by selecting Yes/No/Not Givem"),
+    (2, "Multiple Choice", "multiple-choice", "The question type, which could only answer by selecting A/B/C/D");
