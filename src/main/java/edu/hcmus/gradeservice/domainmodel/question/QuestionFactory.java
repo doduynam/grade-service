@@ -7,6 +7,7 @@ import edu.hcmus.gradeservice.domainmodel.attempt.impl.BaseAttempt;
 import edu.hcmus.gradeservice.domainmodel.grader.engine.impl.MultipleChoiceGradeEngine;
 import edu.hcmus.gradeservice.domainmodel.grader.engine.impl.YesNoTemplateGradeEngine;
 import edu.hcmus.gradeservice.domainmodel.question.impl.MultipleChoiceQuestion;
+import edu.hcmus.gradeservice.domainmodel.question.impl.SentenceCompletionQuestion;
 import edu.hcmus.gradeservice.domainmodel.question.impl.ShortAnswerQuestion;
 import edu.hcmus.gradeservice.domainmodel.question.impl.YesNoQuestion;
 
@@ -27,6 +28,8 @@ public enum QuestionFactory implements IFactory<IQuestion> {
             prototype = new MultipleChoiceQuestion();
         } else if (key.equals(3)) {
             prototype = new ShortAnswerQuestion();
+        } else if (key.equals(4)) {
+            prototype = new SentenceCompletionQuestion();
         }
 
 
