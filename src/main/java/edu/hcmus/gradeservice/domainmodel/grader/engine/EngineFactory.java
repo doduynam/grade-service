@@ -4,6 +4,7 @@ import edu.hcmus.gradeservice.domainmodel.IFactory;
 import edu.hcmus.gradeservice.domainmodel.answer.impl.MultipleChoiceAnswer;
 import edu.hcmus.gradeservice.domainmodel.answer.impl.YesNoAnswer;
 import edu.hcmus.gradeservice.domainmodel.grader.engine.impl.MultipleChoiceGradeEngine;
+import edu.hcmus.gradeservice.domainmodel.grader.engine.impl.ShortAnswerGradeEngine;
 import edu.hcmus.gradeservice.domainmodel.grader.engine.impl.YesNoTemplateGradeEngine;
 
 import java.util.HashMap;
@@ -22,6 +23,8 @@ public enum EngineFactory implements IFactory<IGradeEngine> {
             prototype = new YesNoTemplateGradeEngine();
         } else if (key.equals(2)) {
             prototype = new MultipleChoiceGradeEngine();
+        } else if (key.equals(3)) {
+            prototype = new ShortAnswerGradeEngine();
         }
 
         return prototype;
