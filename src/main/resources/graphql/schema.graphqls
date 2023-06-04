@@ -1,62 +1,105 @@
-
 type Query {
-    answerById(id: ID): Answer
-    questionById(id: ID): Question
+    submit(submission: SubmitRequest): SubmitResponse
 }
 
-type Answer {
-    id: ID!
-    question: Question
-    content: String
-    options: String
+input SubmitRequest {
+    testAttempt: TestAttemptQuery!
 }
 
-type Paragraph {
-    id: ID!
-    section: Session
-    wallpaper: String
-    title: String
-    content: String
+input TestAttemptQuery {
+    id: Int
+    userId: Int!
+    originalTestId: Int!
+    state: Int
+    startedAt: String!
+    endedAt: String!
+
+    attempt: AttemptQuery!
 }
 
-type Question {
-    id: ID!
-    template: Template
-    questionIndex: Int
-    content: String
-    options: String
-    score: Int
+input AttemptQuery {
+    id: Int
+    title: String!
+    testType: Int
+    testLevel: Int
+
+    sections: [SectionQuery!]!
 }
 
-type Session {
-    id: ID!
-    test: Test
-    sectionIndex: Int
+input SectionQuery {
+    id: Int
+    attemptId: Int
+    sectionIndex: Int!
     sectionType: Int
+
+    templates: [TemplateQuery!]!
+
 }
 
-type Template {
-    id: ID!
-    templateType: TemplateType
-    section: Session
-    templateIndex: Int
+input TemplateQuery {
+    id: Int
+    templateTypeId: Int!
+    sectionId: Int
+    templateIndex: Int!
     title: String
     content: String
     expandColumn: String
+
+    questions: [QuestionQuery!]!
 }
 
-type TemplateType {
-    id: ID!
-    name: String
-    description: String
+input QuestionQuery {
+    id: Int
+    templateId: Int
+    questionIndex: Int!
+    content: String
+    options: String
+    score: Int!
+
+    answers: [AnswerQuery!]!
 }
 
-type Test {
-    id: ID!
-    title: String
-    testType: Int
-    testLevel: Int
+input AnswerQuery {
+    id: Int
+    questionId: Int
+    content: String!
+    options: String
 }
+
+type SubmitResponse {
+    score: Int!
+
+    sectionResults: [SectionResult!]!
+}
+
+type SectionResult {
+
+    sectionIndex: Int!
+    score: Int!
+
+    templateResults: [TemplateResult!]!
+}
+
+type TemplateResult {
+
+    templateIndex: Int!
+    score: Int!
+
+    resultComparisons: [ResultComparison!]!
+}
+
+type ResultComparison {
+    questionIndex: Int!
+    score: Int!
+    isCorrect: Boolean!
+    userSubmissionAnswer: String!
+    correctAnswers: [String!]!
+}
+
+
+
+
+
 
 
 
