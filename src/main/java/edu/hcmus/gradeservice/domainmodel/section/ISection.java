@@ -15,4 +15,5 @@ public interface ISection {
     public void setTemplates(Map<Integer, Template> templates);
 
     public Integer getMaxScore();
+
 }

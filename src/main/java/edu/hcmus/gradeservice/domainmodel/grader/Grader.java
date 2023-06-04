@@ -21,7 +21,6 @@ public class Grader {
         testResult.setUserSubmission(userSubmission);
         testResult.setCorrectSolution(correctSolution);
 
-
         Integer errorCode = testResult.executeGrading();
 
         return errorCode;

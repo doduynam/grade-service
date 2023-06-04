@@ -37,5 +37,6 @@ public class Section implements IHasMapperization {
             template.mapperize();
             templateMap.put(template.getTemplateIndex(), template);
         }
+
     }
 }

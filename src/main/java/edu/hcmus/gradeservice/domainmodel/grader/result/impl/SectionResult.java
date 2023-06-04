@@ -41,10 +41,16 @@ public class SectionResult implements IGradable, IResultComparable<TemplateResul
 
     @Override
     public Integer executeGrading() {
+
+//        System.out.println(correctSolution.getTemplateMap());
+
         for (Map.Entry<Integer, edu.hcmus.gradeservice.thirdparty.warriorcore.model.Template> templateEntry: correctSolution.getTemplateMap().entrySet()) {
             edu.hcmus.gradeservice.thirdparty.warriorcore.model.Template templateHasCorrectAnswer = templateEntry.getValue();
             Integer templateIndex = templateHasCorrectAnswer.getTemplateIndex();
             Template templateHasUserSubmission = userSubmission.getTemplates().get(templateIndex);
+
+//            System.out.println(templateIndex);
+//            System.out.println(userSubmission.getTemplates());
 
             //Build and run the template result
             TemplateResult templateResult = new TemplateResult();

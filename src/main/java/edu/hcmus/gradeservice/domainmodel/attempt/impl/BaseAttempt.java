@@ -27,6 +27,7 @@ public class BaseAttempt implements IAttempt {
 
     @Override
     public void setSections(Map<Integer, ISection> sections) {
+
         this.sections = sections;
     }
 

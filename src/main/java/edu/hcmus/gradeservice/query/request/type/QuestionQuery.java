@@ -25,6 +25,7 @@ public class QuestionQuery implements IHasEntity {
 
     @Override
     public QuestionEntity parse() {
+
         QuestionEntity entity = new QuestionEntity();
         entity.setId(id);
         entity.setTemplateId(templateId);

@@ -20,7 +20,7 @@ public class AnswerEntity implements IHasDomainModel {
     private Integer id;
 
     @Basic
-    @Column(name = "question_id")
+    @Column(name = "question_id", insertable = false, updatable = false)
     private Integer questionId;
 
     @Basic
@@ -32,7 +32,7 @@ public class AnswerEntity implements IHasDomainModel {
     private String options;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "question_id", insertable = false, updatable = false)
+    @JoinColumn(name = "question_id")
     private QuestionEntity question;
 
     @Override

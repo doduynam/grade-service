@@ -21,7 +21,6 @@ import java.util.TreeMap;
 public class AttemptEntity implements IHasDomainModel {
 
 
-
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "attempt_id")
@@ -66,6 +65,7 @@ public class AttemptEntity implements IHasDomainModel {
           ISection section = sectionEntity.parse();
           sectionMap.put(index, section);
         }
+
         obj.setSections(sectionMap);
 
         return obj;

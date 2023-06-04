@@ -10,19 +10,14 @@ public enum AttemptFactory implements IFactory<IAttempt> {
 
     INSTANCE;
 
-    private Map<Integer, IAttempt> prototypes = new HashMap<>() {
-        {
-            put(0, new BaseAttempt());
-        }
-    };
-
     @Override
     public IAttempt get(Object key) {
 
-        if (!prototypes.containsKey(key)) {
-            return null;
+        IAttempt prototype = null;
+        if (key.equals(0)) {
+            prototype = new BaseAttempt();
         }
 
-        return prototypes.get(key);
+        return prototype;
     }
 }
