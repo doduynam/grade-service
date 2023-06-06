@@ -1,10 +1,7 @@
 package edu.hcmus.gradeservice.domainmodel.answer;
 
 import edu.hcmus.gradeservice.domainmodel.IFactory;
-import edu.hcmus.gradeservice.domainmodel.answer.impl.MultipleChoiceAnswer;
-import edu.hcmus.gradeservice.domainmodel.answer.impl.SentenceCompletionAnswer;
-import edu.hcmus.gradeservice.domainmodel.answer.impl.ShortAnswer;
-import edu.hcmus.gradeservice.domainmodel.answer.impl.YesNoAnswer;
+import edu.hcmus.gradeservice.domainmodel.answer.impl.*;
 import edu.hcmus.gradeservice.domainmodel.question.IQuestion;
 import edu.hcmus.gradeservice.domainmodel.question.impl.YesNoQuestion;
 
@@ -27,6 +24,8 @@ public enum AnswerFactory implements IFactory<IAnswer> {
             prototype = new ShortAnswer();
         } else if (key.equals(4)) {
             prototype = new SentenceCompletionAnswer();
+        } else if (key.equals(5)) {
+            prototype = new MatchingHeadingAnswer();
         }
 
         return prototype;
