@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -28,6 +29,13 @@ public class TestAttemptServiceImpl implements TestAttemptService {
 
     @Override
     public SubmitResponse submit(TestAttemptEntity entity) {
+
+        //Make the 'state', 'started_at' and 'ended_at' columns' value not change
+        Optional<TestAttemptEntity> testAttemptOption = testAttemptRepository.findById(entity.getId().longValue());
+        TestAttemptEntity testAttemptEntity = testAttemptOption.get();
+        entity.setState(testAttemptEntity.getState());
+        entity.setStartedAt(testAttemptEntity.getStartedAt());
+        entity.setEndedAt(testAttemptEntity.getEndedAt());
 
         //Save the user submission into database
         testAttemptRepository.save(entity);

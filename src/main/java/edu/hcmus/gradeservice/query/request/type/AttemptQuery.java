@@ -14,6 +14,7 @@ public class AttemptQuery implements IHasEntity {
 
       private Integer id;
 
+      private Integer testAttemptId;
       private String title;
       private Integer testType;
 
@@ -24,6 +25,7 @@ public class AttemptQuery implements IHasEntity {
       public AttemptEntity parse() {
           AttemptEntity entity = new AttemptEntity();
           entity.setId(id);
+          entity.setTestAttemptId(testAttemptId);
           entity.setTitle(title);
           entity.setTestLevel(testLevel);
           entity.setTestType(testType);
