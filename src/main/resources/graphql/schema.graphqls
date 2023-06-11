@@ -11,14 +11,15 @@ input TestAttemptQuery {
     userId: Int!
     originalTestId: Int!
     state: Int
-    startedAt: String!
-    endedAt: String!
+    startedAt: String
+    endedAt: String
 
     attempt: AttemptQuery!
 }
 
 input AttemptQuery {
     id: Int
+    testAttemptId: Int!
     title: String!
     testType: Int
     testLevel: Int

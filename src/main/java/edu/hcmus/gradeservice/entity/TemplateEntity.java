@@ -56,7 +56,7 @@ public class TemplateEntity implements IHasDomainModel {
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    @JoinColumn(name="question_id")
+    @JoinColumn(name="template_id")
     private List<QuestionEntity> questions;
 
     public Template parse() {

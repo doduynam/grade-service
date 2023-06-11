@@ -6,12 +6,14 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @Table(name = "test_attempt")
 @Data
 @Getter
 @Setter
+@DynamicUpdate
 public class TestAttemptEntity implements IHasDomainModel {
 
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,8 +44,8 @@ public class TestAttemptEntity implements IHasDomainModel {
   @OneToOne(
           cascade = CascadeType.ALL,
           fetch = FetchType.LAZY,
-          optional = false)
-  @JoinColumn(name="test_attempt_id", updatable = false, insertable = false)
+          orphanRemoval = true)
+  @JoinColumn(name="test_attempt_id")
   private AttemptEntity attempt;
 
   @Override

@@ -50,7 +50,7 @@ public class QuestionEntity implements IHasDomainModel{
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    @JoinColumn(name="answer_id")
+    @JoinColumn(name="question_id")
     private List<AnswerEntity> answers;
 
     @ManyToOne(fetch = FetchType.LAZY)
