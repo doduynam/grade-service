@@ -13,10 +13,10 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://0.0.0.0:4000/state_management
-    username: admin
-    password: admin
+    url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 
 warrior:
-  nodejs-api-url: http://localhost:8090
+  nodejs-api-url: ${NODEJS_API_URL}
 

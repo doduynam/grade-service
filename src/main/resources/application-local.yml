@@ -1,0 +1,22 @@
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+        SQL: debug
+
+spring:
+  graphql:
+    graphiql:
+      enabled: true
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://${DB_HOST:localhost}:${DB_PORT:3307}/${DB_NAME:state_management}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:admin}
+
+warrior:
+  nodejs-api-url: ${NODEJS_API_URL:http://localhost:8090}
+
